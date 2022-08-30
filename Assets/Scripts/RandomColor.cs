@@ -4,19 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColorButton : MonoBehaviour
+public class RandomColor : MonoBehaviour
 {
-    
-
     private void Start() {
-        GameObject colorPattern;
         GameObject randomColor;
         GameObject prefab = Resources.Load<GameObject>("Assets/ColorButton");
         GameObject parent = GameObject.Find("Canvas");
-
-        colorPattern = Instantiate(prefab, new Vector3(-15, 0), parent.transform.rotation, parent.transform);
-        colorPattern.name = "ColorPattern";
-        colorPattern.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Color Pattern";
 
         randomColor = Instantiate(prefab, new Vector3(15, 0), parent.transform.rotation, parent.transform);
         randomColor.name = "RandomColor";

@@ -243,7 +243,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 23.555399
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 1533805564}
   - component: {fileID: 1533805563}
   - component: {fileID: 1533805562}
+  - component: {fileID: 1533805567}
   - component: {fileID: 1533805566}
   m_Layer: 5
   m_Name: Canvas
@@ -384,8 +385,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1533805561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 281185fa3db36e3489908e85f93f1311, type: 3}
+  m_Script: {fileID: 11500000, guid: b088bb4f4312d0845a8789fa7a5dc850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorPattern: {fileID: 0}
-  randomColor: {fileID: 0}
+--- !u!114 &1533805567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533805561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0de00b8ebe7bb246b4e4767285a1adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
