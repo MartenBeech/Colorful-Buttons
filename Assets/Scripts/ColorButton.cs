@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class ColorButton : MonoBehaviour
 {
-    public GameObject colorPattern;
-    public GameObject randomColor;
+    
 
     private void Start() {
+        GameObject colorPattern;
+        GameObject randomColor;
         GameObject prefab = Resources.Load<GameObject>("Assets/ColorButton");
         GameObject parent = GameObject.Find("Canvas");
 
@@ -20,5 +21,10 @@ public class ColorButton : MonoBehaviour
         randomColor = Instantiate(prefab, new Vector3(15, 0), parent.transform.rotation, parent.transform);
         randomColor.name = "RandomColor";
         randomColor.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Random Color";
+        randomColor.GetComponent<Button>().onClick.AddListener(() => RandomColorClicked(randomColor));
+    }
+
+    private void RandomColorClicked(GameObject btn) {
+        btn.GetComponent<Image>().color = UnityEngine.Random.ColorHSV();
     }
 }
