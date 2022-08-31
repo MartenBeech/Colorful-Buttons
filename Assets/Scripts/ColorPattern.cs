@@ -24,13 +24,13 @@ public class ColorPattern : ColorButton
         if (clickTimer > 0) {
             if (updateColorFlag) {
                 if (nClicks == 1) {
-                    _colorButton.GetComponent<Image>().color = hsvColor.Blue;
+                    SetColor(hsvColor.Blue);
                 }
                 if (nClicks == 2) {
-                    _colorButton.GetComponent<Image>().color = hsvColor.Red;
+                    SetColor(hsvColor.Red);
                 }
                 if (nClicks == 5) {
-                    _colorButton.GetComponent<Image>().color = hsvColor.Purple;
+                    SetColor(hsvColor.Purple);
                 }
                 updateColorFlag = false;
             }
@@ -41,11 +41,11 @@ public class ColorPattern : ColorButton
 
         if (resetTimer > 0) {
             resetTimer -= Time.deltaTime;
-            _colorButton.GetComponentInChildren<Text>().text = $"Color Pattern\nResets in {Math.Ceiling(resetTimer)}";
+            SetText($"Color Pattern\nResets in {Math.Ceiling(resetTimer)}");
 
             if (resetTimer <= 0) {
-                _colorButton.GetComponent<Image>().color = hsvColor.Green;
-                _colorButton.GetComponentInChildren<Text>().text = "Color Pattern";
+                SetColor(hsvColor.Green);
+                SetText("Color Pattern");
             }
         }
     }

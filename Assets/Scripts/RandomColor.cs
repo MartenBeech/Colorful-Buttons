@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class RandomColor : ColorButton
 {
-
     public void Start() {
         Setup(new Vector3(15, 0));
         SetName("RandomColor");
@@ -16,6 +15,6 @@ public class RandomColor : ColorButton
     }
 
     public void RandomColorClicked() {
-        _colorButton.GetComponent<Image>().color = UnityEngine.Random.ColorHSV();
+        SetColor(UnityEngine.Random.ColorHSV());
     }
 }
