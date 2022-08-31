@@ -4,38 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColorPattern : MonoBehaviour
+public class ColorPattern : ColorButton
 {
     HSVColor hsvColor = new HSVColor();
-    public GameObject colorPattern;
     public int nClicks = 0;
     public float clickTimer = -1;
     public float resetTimer = -1;
     bool updateColorFlag = false;
 
     public void Start() {
-        
-        GameObject prefab = Resources.Load<GameObject>("Assets/ColorButton");
-        GameObject parent = GameObject.Find("Canvas");
-
-        colorPattern = Instantiate(prefab, new Vector3(-15, 0), parent.transform.rotation, parent.transform);
-        colorPattern.name = "ColorPattern";
-        colorPattern.GetComponentInChildren<Text>().text = "Color Pattern";
-        colorPattern.GetComponent<Image>().color = hsvColor.Green;
-        colorPattern.GetComponent<Button>().onClick.AddListener(() => ColorPatternClicked());
+        Setup(new Vector3(-15, 0));
+        SetName("ColorPattern");
+        SetText("Color Pattern");
+        SetColor(hsvColor.Green);
+        SetOnClickHandler(() => ColorPatternClicked());
     }
 
     public void Update() {
         if (clickTimer > 0) {
             if (updateColorFlag) {
                 if (nClicks == 1) {
-                    colorPattern.GetComponent<Image>().color = hsvColor.Blue;
+                    _colorButton.GetComponent<Image>().color = hsvColor.Blue;
                 }
                 if (nClicks == 2) {
-                    colorPattern.GetComponent<Image>().color = hsvColor.Red;
+                    _colorButton.GetComponent<Image>().color = hsvColor.Red;
                 }
                 if (nClicks == 5) {
-                    colorPattern.GetComponent<Image>().color = hsvColor.Purple;
+                    _colorButton.GetComponent<Image>().color = hsvColor.Purple;
                 }
                 updateColorFlag = false;
             }
@@ -46,9 +41,11 @@ public class ColorPattern : MonoBehaviour
 
         if (resetTimer > 0) {
             resetTimer -= Time.deltaTime;
+            _colorButton.GetComponentInChildren<Text>().text = $"Color Pattern\nResets in {Math.Ceiling(resetTimer)}";
 
             if (resetTimer <= 0) {
-                colorPattern.GetComponent<Image>().color = hsvColor.Green;
+                _colorButton.GetComponent<Image>().color = hsvColor.Green;
+                _colorButton.GetComponentInChildren<Text>().text = "Color Pattern";
             }
         }
     }

@@ -39,7 +39,7 @@ public class ColorPatternTest
         var hsvColor = new HSVColor();
 
         colorPattern.Start();
-        GameObject gameObject = colorPattern.colorPattern;
+        GameObject gameObject = colorPattern._colorButton;
         Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Green);
 
         colorPattern.ColorPatternClicked();
@@ -68,10 +68,10 @@ public class ColorPatternTest
         var randomColor = new RandomColor();
 
         randomColor.Start();
-        GameObject gameObject = randomColor.randomColor;
+        GameObject gameObject = randomColor._colorButton;
         Assert.AreEqual(gameObject.GetComponent<Image>().color, Color.white);
 
-        randomColor.RandomColorClicked(gameObject);
+        randomColor.RandomColorClicked();
         Assert.AreNotEqual(gameObject.GetComponent<Image>().color, Color.white);
     }
 }
