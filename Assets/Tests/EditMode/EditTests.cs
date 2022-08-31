@@ -9,25 +9,25 @@ public class ColorPatternTest
     {
         ColorPattern colorPattern = new ColorPattern();
 
-        Assert.AreEqual(colorPattern.nClicks, 0);
+        Assert.AreEqual(0, colorPattern.nClicks);
 
         colorPattern.ColorPatternClicked();
-        Assert.AreEqual(colorPattern.nClicks, 1);
+        Assert.AreEqual(1, colorPattern.nClicks);
 
         colorPattern.ColorPatternClicked();
-        Assert.AreEqual(colorPattern.nClicks, 2);
+        Assert.AreEqual(2, colorPattern.nClicks);
     }
 
     [Test]
     public void TestColorPatternTimersActivate() {
         var colorPattern = new ColorPattern();
 
-        Assert.AreEqual(colorPattern.resetTimer, -1);
-        Assert.AreEqual(colorPattern.clickTimer, -1);
+        Assert.AreEqual(-1, colorPattern.resetTimer);
+        Assert.AreEqual(-1, colorPattern.clickTimer);
 
         colorPattern.ColorPatternClicked();
-        Assert.AreEqual(colorPattern.resetTimer, 5);
-        Assert.AreEqual(colorPattern.clickTimer, 2);
+        Assert.AreEqual(5, colorPattern.resetTimer);
+        Assert.AreEqual(2, colorPattern.clickTimer);
     }
 
     [Test]
@@ -37,27 +37,27 @@ public class ColorPatternTest
 
         colorPattern.Start();
         GameObject gameObject = colorPattern.colorButton;
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Green);
+        Assert.AreEqual(hsvColor.Green, gameObject.GetComponent<Image>().color);
 
         colorPattern.ColorPatternClicked();
         colorPattern.Update();
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Blue);
+        Assert.AreEqual(hsvColor.Blue, gameObject.GetComponent<Image>().color);
 
         colorPattern.ColorPatternClicked();
         colorPattern.Update();
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Red);
+        Assert.AreEqual(hsvColor.Red, gameObject.GetComponent<Image>().color);
 
         colorPattern.ColorPatternClicked();
         colorPattern.Update();
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Red);
+        Assert.AreEqual(hsvColor.Red, gameObject.GetComponent<Image>().color);
 
         colorPattern.ColorPatternClicked();
         colorPattern.Update();
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Red);
+        Assert.AreEqual(hsvColor.Red, gameObject.GetComponent<Image>().color);
 
         colorPattern.ColorPatternClicked();
         colorPattern.Update();
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, hsvColor.Purple);
+        Assert.AreEqual(hsvColor.Purple, gameObject.GetComponent<Image>().color);
     }
 
     [Test]
@@ -66,9 +66,9 @@ public class ColorPatternTest
 
         randomColor.Start();
         GameObject gameObject = randomColor.colorButton;
-        Assert.AreEqual(gameObject.GetComponent<Image>().color, Color.white);
+        Assert.AreEqual(Color.white, gameObject.GetComponent<Image>().color);
 
         randomColor.RandomColorClicked();
-        Assert.AreNotEqual(gameObject.GetComponent<Image>().color, Color.white);
+        Assert.AreNotEqual(Color.white, gameObject.GetComponent<Image>().color);
     }
 }
