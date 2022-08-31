@@ -11,6 +11,6 @@ public class RandomColor : ColorButton
     }
 
     public void RandomColorClicked() {
-        SetColor(UnityEngine.Random.ColorHSV());
+        SetColor(Random.ColorHSV());
     }
 }
