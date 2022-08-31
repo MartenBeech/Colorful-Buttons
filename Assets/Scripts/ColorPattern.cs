@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class ColorPattern : MonoBehaviour
 {
     HSVColor hsvColor = new HSVColor();
-    GameObject colorPattern;
-    int nClicks = 0;
-    float clickTimer = -1;
-    float resetTimer = -1;
+    public GameObject colorPattern;
+    public int nClicks = 0;
+    public float clickTimer = -1;
+    public float resetTimer = -1;
     bool updateColorFlag = false;
 
-    private void Start() {
+    public void Start() {
         
         GameObject prefab = Resources.Load<GameObject>("Assets/ColorButton");
         GameObject parent = GameObject.Find("Canvas");
@@ -25,7 +25,7 @@ public class ColorPattern : MonoBehaviour
         colorPattern.GetComponent<Button>().onClick.AddListener(() => ColorPatternClicked());
     }
 
-    private void Update() {
+    public void Update() {
         if (clickTimer > 0) {
             if (updateColorFlag) {
                 if (nClicks == 1) {
@@ -53,7 +53,7 @@ public class ColorPattern : MonoBehaviour
         }
     }
 
-    private void ColorPatternClicked() {
+    public void ColorPatternClicked() {
         if (clickTimer < 0) {
             clickTimer = 2;
         }
