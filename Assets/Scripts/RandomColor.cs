@@ -13,7 +13,7 @@ public class RandomColor : MonoBehaviour
 
         randomColor = Instantiate(prefab, new Vector3(15, 0), parent.transform.rotation, parent.transform);
         randomColor.name = "RandomColor";
-        randomColor.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Random Color";
+        randomColor.GetComponentInChildren<Text>().text = "Random Color";
         randomColor.GetComponent<Button>().onClick.AddListener(() => RandomColorClicked(randomColor));
     }
 

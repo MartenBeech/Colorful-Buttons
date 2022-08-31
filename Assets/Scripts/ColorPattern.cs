@@ -20,7 +20,7 @@ public class ColorPattern : MonoBehaviour
 
         colorPattern = Instantiate(prefab, new Vector3(-15, 0), parent.transform.rotation, parent.transform);
         colorPattern.name = "ColorPattern";
-        colorPattern.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Color Pattern";
+        colorPattern.GetComponentInChildren<Text>().text = "Color Pattern";
         colorPattern.GetComponent<Image>().color = hsvColor.Green;
         colorPattern.GetComponent<Button>().onClick.AddListener(() => ColorPatternClicked());
     }
